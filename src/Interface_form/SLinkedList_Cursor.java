@@ -5,8 +5,8 @@ import java.util.Comparator;
 public class SLinkedList_Cursor<E> {
     class Node<E> {
         private E data;
-        private int next;
-        private int dnext;
+        private int next;   // 리스트의 뒤쪽 포인터
+        private int dnext;  // 프리리스트의 뒤쪽 포인터
 
         void set(E data, int next) {
             this.data = data;
@@ -20,14 +20,15 @@ public class SLinkedList_Cursor<E> {
     private int head;      //머리 노드
     private int crnt;      //선택 노드
     private int deleted;   //free 리스트의 머리 노드
-    private static final int NULL = -1;
+    private static final int NULL = -1;   //마지막 노드(꼬리)를 나타내는 값 (음수 인덱스 존재X)
 
+    // 생성자 
     public SLinkedList_Cursor(int capacity) {
         head = crnt = max = deleted = NULL;
         try {
-            n = new Node[capacity];
+            n = new Node[capacity];   // 매개변수로 넘겨 받은 capacity 크기의 배열 생성
             for(int i=0; i<capacity; i++)
-                n[i] = new Node<E>();
+                n[i] = new Node<E>();  // 배열의 각 요소는 Node형 객체
             size = capacity;
         } catch (OutOfMemoryError e) {
             size = 0;
@@ -36,18 +37,19 @@ public class SLinkedList_Cursor<E> {
 
     // 다음에 삽입하는 record의 인덱스를 구하는 메소드
     private int getInsertIndex() {
-        if(deleted == NULL) {
+        if(deleted == NULL) {   // free 리스트가 비어있는 경우(삭제할 record X)
             if(max < size)
                 return ++max;
-            else
+            else  // 용량이 오버된 경우
                 return NULL;
         } else {
-            int rec = deleted;
+            int rec = deleted;  // free 리스트에서 값을 꺼내옴
             deleted = n[rec].dnext;
             return rec;
         }
     }
 
+    // 삭제할 인덱스 record를 free 리스트에 등록
     private void deleteIndex(int idx) {
         if(deleted == NULL) {
             deleted = idx;
@@ -162,6 +164,7 @@ public class SLinkedList_Cursor<E> {
         crnt = NULL;
     }
 
+    // 선택 노드를 하나 뒤쪽으로 이동
     public boolean next() {
         if(crnt == NULL || n[crnt].next == NULL)
             return false;
@@ -169,7 +172,8 @@ public class SLinkedList_Cursor<E> {
         return true;
     }
 
-    public void pringCurrentNode() {
+    // 선택 노드 출력
+    public void printCurrentNode() {
         if(crnt == NULL)
             System.out.println("선택 노드가 없습니다.");
         else
@@ -186,3 +190,4 @@ public class SLinkedList_Cursor<E> {
         }
     }
 }
+
