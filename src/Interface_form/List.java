@@ -2,80 +2,80 @@ package Interface_form;
 
 public interface List<E> {
     /**
-     * ë¦¬ìŠ¤íŠ¸ì— ìš”ì†Œë¥¼ ì¶”ê°€(ì‚½ìž…)í•˜ëŠ” ê²½ìš°
+     * ¸®½ºÆ®¿¡ ¿ä¼Ò¸¦ Ãß°¡(»ðÀÔ)ÇÏ´Â °æ¿ì
      *
-     * @param value ë¦¬ìŠ¤íŠ¸ì— ì¶”ê°€í•  ìš”ì†Œ
-     * @return ë¦¬ìŠ¤íŠ¸ì—ì„œ ì¤‘ë³µì„ í—ˆìš©í•˜ì§€ ì•Šì„ ê²½ìš°, ë¦¬ìŠ¤íŠ¸ì— ì´ë¯¸ ì¤‘ë³µë˜ëŠ” ì›ì†Œê°€ ìžˆë‹¤ë©´
-     * 			{@code false}ë¥¼, ì¤‘ë³µë˜ëŠ” ì›ì†Œê°€ ì—†ë‹¤ë©´ {@code true}ë¥¼ ë¦¬í„´
+     * @param value ¸®½ºÆ®¿¡ Ãß°¡ÇÒ ¿ä¼Ò
+     * @return ¸®½ºÆ®¿¡¼­ Áßº¹À» Çã¿ëÇÏÁö ¾ÊÀ» °æ¿ì, ¸®½ºÆ®¿¡ ÀÌ¹Ì Áßº¹µÇ´Â ¿ø¼Ò°¡ ÀÖ´Ù¸é
+     * 			{@code false}¸¦, Áßº¹µÇ´Â ¿ø¼Ò°¡ ¾ø´Ù¸é {@code true}¸¦ ¸®ÅÏ
      */
     boolean add(E value);
 
     /**
-     * íŠ¹ì • ìœ„ì¹˜ì— ì¶”ê°€í•œë‹¤ë©´, ê·¸ ì´í›„ì˜ ìš”ì†Œë“¤ì€ í•œ ì¹¸ì”© ë°€ë ¤ë‚¨
+     * Æ¯Á¤ À§Ä¡¿¡ Ãß°¡ÇÑ´Ù¸é, ±× ÀÌÈÄÀÇ ¿ä¼ÒµéÀº ÇÑ Ä­¾¿ ¹Ð·Á³²
      *
-     * @param index ìš”ì†Œë¥¼ ì¶”ê°€í•  ìœ„ì¹˜ì˜ ì¸ë±ìŠ¤
-     * @param value ë¦¬ìŠ¤íŠ¸ì— ì¶”ê°€í•  ìš”ì†Œ
+     * @param index ¿ä¼Ò¸¦ Ãß°¡ÇÒ À§Ä¡ÀÇ ÀÎµ¦½º
+     * @param value ¸®½ºÆ®¿¡ Ãß°¡ÇÒ ¿ä¼Ò
      */
     void add(int index, E value);
 
     /**
-     * ë¦¬ìŠ¤íŠ¸ì˜ íŠ¹ì • ìœ„ì¹˜ì˜ ìš”ì†Œë¥¼ ì‚­ì œí•˜ëŠ” ê²½ìš°(index)
+     * ¸®½ºÆ®ÀÇ Æ¯Á¤ À§Ä¡ÀÇ ¿ä¼Ò¸¦ »èÁ¦ÇÏ´Â °æ¿ì(index)
      *
-     * @param index ë¦¬ìŠ¤íŠ¸ì—ì„œ ì‚­ì œí•  ìš”ì†Œì˜ ìœ„ì¹˜ ì¸ë±ìŠ¤
-     * @return ì‚­ì œëœ ìš”ì†Œë¥¼ ë¦¬í„´
+     * @param index ¸®½ºÆ®¿¡¼­ »èÁ¦ÇÒ ¿ä¼ÒÀÇ À§Ä¡ ÀÎµ¦½º
+     * @return »èÁ¦µÈ ¿ä¼Ò¸¦ ¸®ÅÏ
      */
     E remove(int index);
 
     /**
-     * ë¦¬ìŠ¤íŠ¸ì—ì„œ íŠ¹ì • ìš”ì†Œë¥¼ ì‚­ì œí•˜ëŠ” ê²½ìš°(value)
+     * ¸®½ºÆ®¿¡¼­ Æ¯Á¤ ¿ä¼Ò¸¦ »èÁ¦ÇÏ´Â °æ¿ì(value)
      *
-     * @param value ë¦¬ìŠ¤íŠ¸ì—ì„œ ì‚­ì œí•  ìš”ì†Œ
-     * @return ì‚­ì œí•  ìš”ì†Œê°€ ì—†ê±°ë‚˜ ì‚­ì œí•˜ì§€ ëª»í•œ ê²½ìš° {@code false},
-     * 			ì‚­ì œì— ì„±ê³µí•œ ê²½ìš° {@code true}ë¥¼ ë¦¬í„´
+     * @param value ¸®½ºÆ®¿¡¼­ »èÁ¦ÇÒ ¿ä¼Ò
+     * @return »èÁ¦ÇÒ ¿ä¼Ò°¡ ¾ø°Å³ª »èÁ¦ÇÏÁö ¸øÇÑ °æ¿ì {@code false},
+     * 			»èÁ¦¿¡ ¼º°øÇÑ °æ¿ì {@code true}¸¦ ¸®ÅÏ
      */
     boolean remove(Object value);
 
     /**
-     * ë¦¬ìŠ¤íŠ¸ì—ì„œ íŠ¹ì • ìœ„ì¹˜ì˜ ìš”ì†Œë¥¼ ê²€ìƒ‰í•˜ëŠ” ê²½ìš°
+     * ¸®½ºÆ®¿¡¼­ Æ¯Á¤ À§Ä¡ÀÇ ¿ä¼Ò¸¦ °Ë»öÇÏ´Â °æ¿ì
      *
-     * @param index ë¦¬ìŠ¤íŠ¸ì— ì ‘ê·¼í•  ìœ„ì¹˜ì˜ ì¸ë±ìŠ¤
-     * @return ë¦¬ìŠ¤íŠ¸ì˜ index ìœ„ì¹˜ì— ìžˆëŠ” ìš”ì†Œ ë¦¬í„´
+     * @param index ¸®½ºÆ®¿¡ Á¢±ÙÇÒ À§Ä¡ÀÇ ÀÎµ¦½º
+     * @return ¸®½ºÆ®ÀÇ index À§Ä¡¿¡ ÀÖ´Â ¿ä¼Ò ¸®ÅÏ
      */
     E get(int index);
 
     /**
-     * ë¦¬ìŠ¤íŠ¸ì—ì„œ íŠ¹ì • ìœ„ì¹˜ì˜ ìš”ì†Œë¥¼ ìƒˆ ìš”ì†Œë¡œ ëŒ€ì²´í•˜ëŠ” ê²½ìš°
+     * ¸®½ºÆ®¿¡¼­ Æ¯Á¤ À§Ä¡ÀÇ ¿ä¼Ò¸¦ »õ ¿ä¼Ò·Î ´ëÃ¼ÇÏ´Â °æ¿ì
      *
-     * @param index ë¦¬ìŠ¤íŠ¸ì— ì ‘ê·¼í•  ìœ„ì¹˜ì˜ ì¸ë±ìŠ¤
-     * @param value ìƒˆë¡œ ëŒ€ì²´í•  ìš”ì†Œ ê°’
+     * @param index ¸®½ºÆ®¿¡ Á¢±ÙÇÒ À§Ä¡ÀÇ ÀÎµ¦½º
+     * @param value »õ·Î ´ëÃ¼ÇÒ ¿ä¼Ò °ª
      */
     void set(int index, E value);
 
     /**
-     * ë¦¬ìŠ¤íŠ¸ì— íŠ¹ì • ìš”ì†Œì˜ ì¡´ìž¬ ì—¬ë¶€ë¥¼ í™•ì¸í•˜ëŠ” ê²½ìš°
+     * ¸®½ºÆ®¿¡ Æ¯Á¤ ¿ä¼ÒÀÇ Á¸Àç ¿©ºÎ¸¦ È®ÀÎÇÏ´Â °æ¿ì
      *
-     * @param value ë¦¬ìŠ¤íŠ¸ì—ì„œ ì°¾ì„ íŠ¹ì • ìš”ì†Œ ê°’
-     * @return ë¦¬ìŠ¤íŠ¸ì— íŠ¹ì • ìš”ì†Œê°€ ì¡´ìž¬í•  ê²½ìš° {@code true}, ì¡´ìž¬í•˜ì§€ ì•Šì„ ê²½ìš° {@code false}
+     * @param value ¸®½ºÆ®¿¡¼­ Ã£À» Æ¯Á¤ ¿ä¼Ò °ª
+     * @return ¸®½ºÆ®¿¡ Æ¯Á¤ ¿ä¼Ò°¡ Á¸ÀçÇÒ °æ¿ì {@code true}, Á¸ÀçÇÏÁö ¾ÊÀ» °æ¿ì {@code false}
      */
     boolean contains(Object value);
 
     /**
-     * ë¦¬ìŠ¤íŠ¸ì˜ ìš”ì†Œ ê°œìˆ˜ë¥¼ êµ¬í•˜ëŠ” ê²½ìš°
+     * ¸®½ºÆ®ÀÇ ¿ä¼Ò °³¼ö¸¦ ±¸ÇÏ´Â °æ¿ì
      *
-     * @return ë¦¬ìŠ¤íŠ¸ì— ìžˆëŠ” ìš”ì†Œì˜ ì´ ê°œìˆ˜ë¥¼ ë¦¬í„´
+     * @return ¸®½ºÆ®¿¡ ÀÖ´Â ¿ä¼ÒÀÇ ÃÑ °³¼ö¸¦ ¸®ÅÏ
      * @return
      */
     int size();
 
     /**
-     * ë¦¬ìŠ¤íŠ¸ì— ìš”ì†Œê°€ ì—†ëŠ”ì§€(ë¹„ì–´ìžˆëŠ” ìƒíƒœì¸ì§€) í™•ì¸í•˜ëŠ” ê²½ìš°
+     * ¸®½ºÆ®¿¡ ¿ä¼Ò°¡ ¾ø´ÂÁö(ºñ¾îÀÖ´Â »óÅÂÀÎÁö) È®ÀÎÇÏ´Â °æ¿ì
      *
-     * @return ë¦¬ìŠ¤íŠ¸ì— ìš”ì†Œê°€ ìžˆëŠ” ê²½ìš° {@code true}, ì—†ëŠ” ê²½ìš° {@code false} ë¦¬í„´
+     * @return ¸®½ºÆ®¿¡ ¿ä¼Ò°¡ ÀÖ´Â °æ¿ì {@code true}, ¾ø´Â °æ¿ì {@code false} ¸®ÅÏ
      */
     boolean isEmpty();
 
     /**
-     * ë¦¬ìŠ¤íŠ¸ì˜ ëª¨ë“  ìš”ì†Œë¥¼ ì‚­ì œí•˜ëŠ” ê²½ìš°
+     * ¸®½ºÆ®ÀÇ ¸ðµç ¿ä¼Ò¸¦ »èÁ¦ÇÏ´Â °æ¿ì
      */
     public void clear();
 }
