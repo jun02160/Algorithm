@@ -1,4 +1,4 @@
-package Interface_form;
+package Interface_form.SLinkedList;
 
 public class SLinkedListTest {
     public static void main(String[] args) {

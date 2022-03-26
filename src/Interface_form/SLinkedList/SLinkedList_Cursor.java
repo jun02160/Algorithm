@@ -1,4 +1,4 @@
-package Interface_form;
+package Interface_form.SLinkedList;
 
 import java.util.Comparator;
 

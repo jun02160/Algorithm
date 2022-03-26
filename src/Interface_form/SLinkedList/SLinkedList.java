@@ -1,4 +1,6 @@
-package Interface_form;
+package Interface_form.SLinkedList;
+
+import Interface_form.List;
 
 import java.util.NoSuchElementException;
 

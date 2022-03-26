@@ -1,4 +1,4 @@
-package Interface_form;
+package Interface_form.SLinkedList;
 
 class Node<E> {
     E data;
