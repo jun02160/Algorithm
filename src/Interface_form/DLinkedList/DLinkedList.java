@@ -4,6 +4,7 @@ import Interface_form.List;
 
 import java.util.NoSuchElementException;
 
+// 이중 연결 리스트
 public class DLinkedList<E> implements List<E> {
     private Node<E> head;
     private Node<E> tail;

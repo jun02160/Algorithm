@@ -4,6 +4,7 @@ import Interface_form.List;
 
 import java.util.NoSuchElementException;
 
+// 단일 연결 리스트
 public class SLinkedList<E> implements List<E> {
     private Node<E> head;
     private Node<E> tail;
