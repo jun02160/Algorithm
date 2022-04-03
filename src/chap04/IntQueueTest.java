@@ -47,6 +47,12 @@ public class IntQueueTest {
                 case 4:
                     s.dump();
                     break;
+
+                case 5:
+                    System.out.print("데이터: ");
+                    x = stdIn.nextInt();
+                    System.out.println(s.search(x));
+
             }
         }
     }

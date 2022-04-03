@@ -106,5 +106,30 @@ public class IntQueue {
         }
     }
 
+    // search : 임의의 데이터 검색
+    public int search(int x) {
+        int result = 1;
+        int i;
+        if(front < rear) {
+            for(i = front; i<rear; i++) {
+                if(i == indexOf(x))
+                    break;
+                result++;
+            }
+        } else {
+            for (i = front; i < max; i++) {
+                result++;
+            }
+
+            for (i = 0; i < rear; i++) {
+                if (i == indexOf(x))
+                    break;
+                result++;
+            }
+        }
+
+        return result;
+    }
+
 }
 
