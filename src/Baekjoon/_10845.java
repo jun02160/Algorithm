@@ -1,81 +1,60 @@
 package Baekjoon;
 
-import java.util.Scanner;
-
-class Queue {
-
-    int[] que;
-    int front;
-    int rear;
-
-    public Queue(int capacity) {
-        front = 0;
-        rear = -1;
-
-        que = new int[capacity];
-
-    }
-
-    public int push(int x) {
-        que[++rear] = x;
-
-        return x;
-    }
-
-    public int pop() {
-        if(empty() == 1)
-            return -1;
-
-        return que[front++];
-    }
-
-    public int size() {
-        return rear - front + 1;
-    }
-
-    public int empty() {
-        if(size() <= 0)
-            return 1;
-        return 0;
-    }
-
-    public int back() {
-        if(empty() == 1)
-            return -1;
-        return que[rear];
-    }
-
-    public int front() {
-        if(empty() == 1)
-            return -1;
-        return que[front];
-    }
-}
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.StringTokenizer;
 
 public class _10845 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
 
-        Scanner sc = new Scanner(System.in);
+        int N = Integer.parseInt(st.nextToken());
+        StringBuilder sb = new StringBuilder();
+        Queue<Integer> que = new LinkedList<>();
 
-        int N = sc.nextInt();
-        Queue que = new Queue(N);
+        int back = -1;
 
         for(int i=0; i<N; i++) {
-            String c = sc.next();
+            st = new StringTokenizer(br.readLine());
+            String c = st.nextToken();
             switch (c) {
-                case "push" -> {
-                    int x = sc.nextInt();
-                    System.out.println(que.push(x));
-                }
-                case "pop" -> System.out.println(que.pop());
-                case "size" -> System.out.println(que.size());
-                case "empty" -> System.out.println(que.empty());
-                case "front" -> System.out.println(que.front());
-                case "back" -> System.out.println(que.back());
-                default -> {
-                }
+                case "push":
+                    back = Integer.parseInt(st.nextToken());
+                    que.offer(back);
+                    break;
+
+                case "pop":
+                    if(que.isEmpty()) {
+                        sb.append("-1").append("\n");
+                        break;
+                    }
+                    sb.append(que.poll()).append("\n");
+                    break;
+
+                case "size":
+                    sb.append(que.size()).append("\n");
+                    break;
+
+                case "empty":
+                    sb.append(que.isEmpty() ? 1 : 0).append("\n");
+                    break;
+
+                case "front":
+                    sb.append(que.isEmpty() ? -1 : que.peek()).append("\n");
+                    break;
+
+                case "back":
+                    sb.append(que.isEmpty() ? -1 : back).append("\n");
+                    break;
+
             }
 
         }
+
+        System.out.print(sb);
     }
 }
