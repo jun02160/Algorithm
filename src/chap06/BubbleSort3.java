@@ -2,7 +2,7 @@ package chap06;
 
 import java.util.Scanner;
 
-public class BubbleSort {
+public class BubbleSort3 {
     static void swap(int[] arr, int idx1, int idx2) {
         int temp = arr[idx1];
         arr[idx1] = arr[idx2];
@@ -25,73 +25,43 @@ public class BubbleSort {
         }
     }
 
-    static void printList2(int[] arr, int idx) {
-        for(int i=0; i<arr.length; i++) {
-            System.out.print(arr[i]);
-
-            if(i == idx) {
-                if(arr[idx] > arr[idx+1])
-                    System.out.print('+');
-                else
-                    System.out.print('-');
-            } else {
-                System.out.print(" ");
-            }
-        }
-    }
-
-    // 오른쪽부터 비교&교환한 버전 1
+    // 더이상 교환 수행 X == 이미 정렬된 상태임을 이용한 버전3
     static void bubbleSort(int[] arr, int N) {
-        int swap_cnt = 0;
+        int k=0;       // 정렬을 끝낸 인덱스의 위치 기준을 나타내는 변수
         int compare_cnt = 0;
-        for(int i=0; i<N-1; i++) {
-            System.out.println("패스" + (i+1) + ":");
+        int swap_cnt = 0;
 
-            for(int j=N-1; j>i; j--) {   // i번째는 자동으로 정렬이 끝난 상태이므로 N-1 -> i+1번째까지 이웃한 원소를 swap 한다.
+        while(k < N-1) {
+            int last = N-1;   // 마지막으로 요소를 교환한 위치
+            for(int j=N-1; j>k; j--) {
                 printList(arr, j);
-
                 if(arr[j-1] > arr[j]) {
-                    swap(arr, j - 1, j);
+                    System.out.println("\nswap 이전 last: " +last);
+                    swap(arr, j-1, j);
                     swap_cnt++;
+                    last = j;  // 정렬해야 할 대소 비교에서만 last를 갱신함
+                    System.out.println("swap 이후 last: " +last);
                 }
                 compare_cnt++;
                 System.out.println();
             }
             System.out.println();
+            k = last;  // 다음 수행할 패스의 범위 제한
+            System.out.println("k와 N-1의 값: " + k + ", " + (N-1) + "\n");
         }
-
         System.out.println("\n\n비교를 " + compare_cnt + "회 했습니다.");
         System.out.println("교환을 " + swap_cnt + "회 했습니다.\n\n");
-    }
-
-    // 왼쪽부터 비교&교환
-    static void bubbleSort2(int[] arr, int N) {
-        for(int i=0; i<N-1; i++) {
-            System.out.println("패스" + (i+1) + ":");
-
-            for(int j=i; j<N-1; j++) {   // i번째는 자동으로 정렬이 끝난 상태이므로 N-1 -> i+1번째까지 이웃한 원소를 swap 한다.
-
-                if(arr[j] > arr[j+1]) {
-                    printList2(arr, j);
-                    swap(arr, j , j+1);
-                } else {
-                    printList2(arr, j);
-                }
-                System.out.println();
-            }
-            System.out.println();
-        }
     }
 
     public static void main(String[] args) {
         Scanner stdIn = new Scanner(System.in);
 
-        System.out.println("버블 정렬(ver.1)");
+        System.out.println("버블 정렬(ver.3)");
         System.out.print("요소의 개수: ");
         int cnt = stdIn.nextInt();
         int[] x = new int[cnt];
 
-        for(int i=0; i<cnt; i++) {
+        for (int i = 0; i < cnt; i++) {
             System.out.print("x[" + i + "] : ");
             x[i] = stdIn.nextInt();
         }
@@ -99,7 +69,7 @@ public class BubbleSort {
         bubbleSort(x, cnt);
 
         System.out.println("오름차순으로 정렬했습니다.");
-        for(int i=0; i<cnt; i++) {
+        for (int i = 0; i < cnt; i++) {
             System.out.println("x[" + i + "] = " + x[i]);
         }
     }
