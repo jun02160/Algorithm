@@ -13,6 +13,36 @@ public class _24052 {
         }
     }
 
+    static boolean insertSort(int[] arr, int K) {
+        int count = 0;
+
+        for(int i=1; i<arr.length; i++) {
+
+            int j;
+            int temp = arr[i];
+            for(j=i; j>0&&arr[j-1]>temp; j--) {
+                arr[j] = arr[j-1];
+                count++;
+
+                if(count==K) {
+                    return true;
+                }
+            }
+
+
+            if(j != i) {   // 기존의 자기 위치가 아닐 때만 삽입
+                arr[j] = temp;
+                count++;
+                if(count==K) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+
+    }
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -27,16 +57,9 @@ public class _24052 {
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
-        for(int i=1; i<A; i++) {
-            int temp = arr[i];
-
-            int j;
-            for(j=i; j>0&&arr[j-1]>temp; j--) {
-                arr[j] = arr[j-1];
-            }
-            arr[j] = temp;
-        }
-
-        printList(arr);
+        if(insertSort(arr, K))
+            printList(arr);
+        else
+            System.out.println("-1");
     }
 }
