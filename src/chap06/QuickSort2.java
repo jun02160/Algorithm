@@ -16,7 +16,7 @@ public class QuickSort2 {
     static void quickSort(int[] a, int n) {
         int pl = 0;     // 왼쪽 커서
         int pr = n-1;   // 오른쪽 커서
-        int x = a[n/2];  // 피벗(가운데 위치의 값
+        int x = a[n/2];  // 피벗(가운데 위치의 값으로 설정 *반드시 중간값이어야 하는 것 x)
 
         do {
             while(a[pl] < x) pl++;
