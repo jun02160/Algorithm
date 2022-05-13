@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 
 public class _2751 {
     static int[] buff;
+    static int n = 1;
 
     static void __mergeSort(int[] a, int left, int right) {
         if (left < right) {
@@ -15,8 +16,16 @@ public class _2751 {
             int j = 0;
             int k = left;
 
+
             __mergeSort(a, left, center);
             __mergeSort(a, center+1, right);
+
+            System.out.println(n+"회 " + "부분 집합의 병합 정렬");
+            for(i=0; i<right+1; i++) {
+                System.out.println("a[" + i + "]=" + a[i]);
+            }
+            System.out.println();
+            n++;
 
             for (i=left; i<=center; i++)
                 buff[p++] = a[i];
