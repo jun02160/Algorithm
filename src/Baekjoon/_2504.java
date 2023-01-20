@@ -3,11 +3,11 @@ package Baekjoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.LinkedList;
 import java.util.Stack;
 
 public class _2504 {
     static Stack<Character> stack = new Stack<>();
+    static Stack<Integer> nums = new Stack<>();
     static String line;
 
     public static void main(String[] args) throws IOException {
@@ -48,23 +48,6 @@ public class _2504 {
                     result *= temp;
                     tmp = 1;
                 }
-
-                //
-
-
-
-                /*if (isNextValue(i)){
-                    tmp *= temp;
-                } else if (!isNextValue(i) && stack.isEmpty())  {
-                    result += tmp;
-                    tmp = 1;
-                } else if (!isNextValue(i)) {
-                    result += temp;
-                }  else {
-                    tmp *= temp;
-                    result += tmp;
-                    tmp = 1;
-                }*/
             }
 
             System.out.println(stack.toString() + "   result, temp, tmp = " + result + ", " + temp + ", " + tmp);
@@ -77,24 +60,34 @@ public class _2504 {
 
     private static int isClose(char c) {
         char curr = 0;
-        if (!stack.isEmpty())
+        int num = 1;
+        if (!stack.isEmpty()) {
             curr = (char) stack.peek();
+        }
+        if (!nums.isEmpty()) {
+            num = nums.pop();
+        }
         switch (c) {
             case ')':
                 if (curr == '(') {
                     stack.pop();
-                    return 2;
+                    return 2 *num;
                 }
                 break;
             case ']':
                 if (curr == '[') {
                     stack.pop();
-                    return 3;
+                    return 3 *num;
                 }
                 break;
         }
-        if (c == '(' || c == '[')
+        if (c == '(' || c == '[') {
             stack.add(c);
+        }
+        if (isNum(c)) {
+            System.out.println(c);
+            nums.add(Integer.parseInt(String.valueOf(c)));
+        }
 
         return -1;
     }
@@ -113,5 +106,14 @@ public class _2504 {
             return line.charAt(i + 1) == '(' || line.charAt(i + 1) == '[';
         }
         return false;
+    }
+
+    private static boolean isNum(char c) {
+        try {
+            Integer.parseInt(String.valueOf(c));
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 }
