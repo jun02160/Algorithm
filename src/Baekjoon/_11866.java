@@ -15,6 +15,8 @@ public class _11866 {
         int N = Integer.parseInt(st.nextToken());
         int K = Integer.parseInt(st.nextToken());
 
+
+
         Queue<Integer> nums = new LinkedList<>();
         for (int i=1; i<=N; i++)  nums.add(i);
 
@@ -39,6 +41,7 @@ public class _11866 {
             curr = nums.poll();
 
             sb.append(curr).append(", ");
+
 
         }
         sb.append(nums.poll()).append(">");
