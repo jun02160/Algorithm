@@ -23,6 +23,7 @@ public class _6588 {
             }
         }
 
+
         int n = Integer.parseInt(br.readLine());
         while (n != 0) {
 
