@@ -14,7 +14,7 @@ public class _16563 {
         StringBuilder sb = new StringBuilder();
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-
+        /* 에라토스테네스의 체 방식 이용 */
         // 소수 배열 구성
         int max = 5_00_0000;
         int[] primes = new int[max+1];
