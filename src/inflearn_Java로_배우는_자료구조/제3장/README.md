@@ -57,7 +57,7 @@ public Notebook(String manufacturer, String processor, int ramSize, int diskSize
 
 
 
-# 제3-2장: Object와 Wrapper 클래스
+# 제3-3장: Object와 Wrapper 클래스
 ## 🔗 개념
 
 ### Object class
@@ -102,6 +102,10 @@ Object[] theArray = new Object[100];
 theArray[0] = 10;   // 정수 10을 자바 컴파일러가 Integer 객체로 변환(autoboxing)해준다. 
 int a = (Integer)theArray[0];  // Integer 객체로 저장되어 있는 Object 배열의 요소를 자바 컴파일러가 자동으로 정수로 변환(unboxing)해준다. 
 ```
+
+# 제3-3장: 클래스 Objectd와  Wrapper 클래스
+
+
 
 > 인프런 권오흠 교수님의 ‘Java로 배우는 자료구조’ 강의의 학습 정리 내용입니다.
 >
